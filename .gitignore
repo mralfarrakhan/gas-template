@@ -1,0 +1,29 @@
+# dependencies (bun install)
+node_modules
+
+# build output
+dist
+build
+out
+
+# logs
+logs
+*.log
+
+# environment files
+.env
+.env.*
+
+# caches
+.cache
+.eslintcache
+*.tsbuildinfo
+
+# IDE & OS
+.idea
+.vscode
+.DS_Store
+
+# Google Apps Script Clasp credentials & config
+.clasp.json
+.clasprc.json

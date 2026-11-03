@@ -1,0 +1,40 @@
+{
+  "name": "gas-template",
+  "version": "1.0.0",
+  "description": "Preact + Vite + Tailwind CSS v4 + TypeScript Google Apps Script template",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite --config vite.config.ui.ts",
+    "copy:manifest": "bun -e \"import fs from 'node:fs'; fs.mkdirSync('dist', { recursive: true }); fs.copyFileSync('appsscript.json', 'dist/appsscript.json');\"",
+    "build:script": "vite build --config vite.config.script.ts",
+    "build:ui": "vite build --config vite.config.ui.ts",
+    "build": "bun run copy:manifest && vite build --config vite.config.script.ts && vite build --config vite.config.ui.ts",
+    "push": "bun run build && clasp push",
+    "deploy": "bun run build && clasp push && clasp deploy",
+    "clasp": "clasp",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "lint": "eslint .",
+    "check": "prettier --check . && tsc --noEmit && eslint ."
+  },
+  "dependencies": {
+    "@tailwindcss/vite": "^4.0.0",
+    "preact": "^10.26.4",
+    "tailwindcss": "^4.0.0"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.20.0",
+    "@gas-plugin/unplugin": "^0.2.2",
+    "@google/clasp": "^3.4.1",
+    "@preact/preset-vite": "^2.10.6",
+    "@types/google-apps-script": "^2.0.13",
+    "eslint": "^9.20.0",
+    "globals": "^16.0.0",
+    "prettier": "^3.5.0",
+    "typescript": "^5.8.0",
+    "typescript-eslint": "^8.24.0",
+    "vite": "^6.2.0",
+    "vite-plugin-singlefile": "^2.3.4"
+  }
+}
